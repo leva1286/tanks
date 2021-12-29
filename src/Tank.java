@@ -1,18 +1,19 @@
 public class Tank {
-    int positionx;
-    int positiony;
+    int x;
+    int y;
     int turn;
-    int fuel= 100;
+    int fuel;
 
-    public  Tank () {}
-
-    public  Tank (int positionx, int positiony ) {
-        this.positionx = positionx;
-        this.positiony = positiony;
+    public  Tank () {
+        this(0,0,100);
     }
-    public  Tank (int positionx, int positiony, int fuel){
-        this.positionx = positionx;
-        this.positiony = positiony;
+
+    public  Tank (int x, int y ) {
+        this(x,y,100);
+    }
+    public  Tank (int x, int y, int fuel){
+        this.x = x;
+        this.y = y;
         this.fuel =fuel;
     }
     public void goForward(int goForward) {
@@ -23,21 +24,21 @@ public class Tank {
             fuel = fuel - goForward;
         }
         if (turn == 0) {
-            positionx += goForward;
+            x += goForward;
         } else if (turn == 1) {
-            positiony += goForward;
+            y += goForward;
         } else if (turn == 2) {
-            positionx -= goForward;
+            x -= goForward;
         } else {
-            positiony -= goForward;
+            y -= goForward;
         }
     }
     public void printPosition() {
-        System.out.println("The Tank is at " + positionx + ", " + positiony + " now.");
+        System.out.println("The Tank is at " + x + ", " + y + " now.");
     }
     public  void turnRight () {
         turn++;
-        if (turn ==4 )
+        if (turn == 4 )
             turn = 0;
     }
     public void turnLeft () {
